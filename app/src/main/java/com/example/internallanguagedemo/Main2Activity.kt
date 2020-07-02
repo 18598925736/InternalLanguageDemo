@@ -1,15 +1,13 @@
 package com.example.internallanguagedemo
 
-import android.content.Intent
 import android.os.Bundle
 import com.example.plugin.base.BaseActivity
-import com.example.plugin.base.LanguageSetting
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main2.*
 
-class MainActivity : BaseActivity() {
+class Main2Activity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main2)
 
         btnChangeSkinCn.setOnClickListener {
             changeSkin(MyApp.skinPathList[0])
@@ -21,10 +19,6 @@ class MainActivity : BaseActivity() {
 
         btnChangeSkinEn.setOnClickListener {
             changeSkin(MyApp.skinPathList[2])
-        }
-        btnJump.setOnClickListener {
-            val intent = Intent(this, Main2Activity::class.java)
-            startActivity(intent)
         }
     }
 }

@@ -1,4 +1,6 @@
-include ':skin01'
+include ':skin_cn_tw'
+include ':skin_en'
+include ':skin_cn'
 include ':plugin'
 include ':app'
 rootProject.name = "InternalLanguageDemo"

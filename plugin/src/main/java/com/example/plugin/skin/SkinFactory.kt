@@ -94,15 +94,11 @@ class SkinFactory : Factory2 {
         view: View?
     ) {
         // 获取我们自己定义的属性
-        val a = context.obtainStyledAttributes(
-            attrs,
-            R.styleable.Skinable
-        )
+        val a = context.obtainStyledAttributes(attrs, R.styleable.Skinable)
         val isSupport = a.getBoolean(R.styleable.Skinable_isSupport, false)
         if (isSupport) { //找到支持换肤的view
             val len = attrs.attributeCount
-            val attrMap =
-                HashMap<String, String>()
+            val attrMap = HashMap<String, String>()
             for (i in 0 until len) { //遍历所有属性
                 val attrName = attrs.getAttributeName(i)
                 val attrValue = attrs.getAttributeValue(i)
@@ -129,11 +125,12 @@ class SkinFactory : Factory2 {
         lateinit var attrsMap: HashMap<String, String>
 
         /**
-         * 真正的换肤操作
+         * 真正的换肤操作,
+         * 其实就是简单地
          */
         fun changeSkin() {
-            if (!TextUtils.isEmpty(attrsMap!!["background"])) { //属性名,例如，这个background，text，textColor....
-                val bgId = attrsMap!!["background"]!!.substring(1).toInt() //属性值，R.id.XXX ，int类型，
+            if (!TextUtils.isEmpty(attrsMap["background"])) { //属性名,例如，这个background，text，textColor....
+                val bgId = attrsMap["background"]!!.substring(1).toInt() //属性值，R.id.XXX ，int类型，
                 // 这个值，在app的一次运行中，不会发生变化
                 val attrType =
                     view!!.resources.getResourceTypeName(bgId) // 属性类别：比如 drawable ,color
@@ -144,17 +141,17 @@ class SkinFactory : Factory2 {
                 }
             }
             if (view is TextView) {
-                if (!TextUtils.isEmpty(attrsMap!!["textColor"])) {
-                    val textColorId = attrsMap!!["textColor"]!!.substring(1).toInt()
+                if (!TextUtils.isEmpty(attrsMap["textColor"])) {
+                    val textColorId = attrsMap["textColor"]!!.substring(1).toInt()
                     (view as TextView).setTextColor(SkinEngine.instance.getColor(textColorId))
                 }
 
                 // 我这里只需要提取字符串
                 if (!TextUtils.isEmpty(attrsMap!!["text"])) {
                     val textId = attrsMap["text"]!!.substring(1).toInt()
-                    val attrType = view!!.resources.getResourceTypeName(textId)
+                    val attrType = view.resources.getResourceTypeName(textId)
                     if (attrType == "string") {
-                        val entryName = view!!.resources.getResourceEntryName(textId)
+                        val entryName = view.resources.getResourceEntryName(textId)
                         (view as TextView).text = SkinEngine.instance.getText(entryName)
                     }
                 }

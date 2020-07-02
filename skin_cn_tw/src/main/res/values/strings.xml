@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">InternalLanguageDemo</string>
+    <string name="title">用換膚框架實現字符串國際化</string>
+    <string name="title2">假如下面的是妳的設置菜單</string>
+    <string name="option_1">交易</string>
+    <string name="option_2">活動</string>
+    <string name="option_3">瀏覽歷史</string>
+    <string name="option_4">設置</string>
+    <string name="option_5">幫助反饋</string>
+    <string name="option_6">我的錢包</string>
+    <string name="option_7">升級</string>
+    <string name="option_8">安全</string>
+
+</resources>

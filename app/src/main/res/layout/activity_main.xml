@@ -9,103 +9,131 @@
     android:padding="20dp"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnChangeSkinCn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换成中文简体" />
+
+        <Button
+            android:id="@+id/btnChangeSkinCnTw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换成中文繁体" />
+
+        <Button
+            android:id="@+id/btnChangeSkinEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换成英文" />
+    </LinearLayout>
+
     <Button
-        android:id="@+id/btnChangeSkin"
+        android:id="@+id/btnJump"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="changeSkin" />
+        android:text="跳转到Activity2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:isSupport="true"
         android:text="@string/title"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        app:isSupport="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:isSupport="true"
         android:text="@string/title2"
         android:textColor="@color/color_1A1C25"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:isSupport="true" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="12dp"
         android:background="@drawable/bg_1"
-        app:isSupport="true"
-        android:orientation="vertical"
         android:padding="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:isSupport="true"
-            android:text="@string/option_1"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:isSupport="true"
-            android:text="@string/option_2"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/option_1"
+                android:textSize="20sp"
+                app:isSupport="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:isSupport="true"
-            android:text="@string/option_3"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/option_2"
+                android:textSize="20sp"
+                app:isSupport="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:isSupport="true"
-            android:text="@string/option_4"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/option_3"
+                android:textSize="20sp"
+                app:isSupport="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:isSupport="true"
-            android:text="@string/option_5"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/option_4"
+                android:textSize="20sp"
+                app:isSupport="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:isSupport="true"
-            android:text="@string/option_6"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/option_5"
+                android:textSize="20sp"
+                app:isSupport="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:isSupport="true"
-            android:text="@string/option_7"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/option_6"
+                android:textSize="20sp"
+                app:isSupport="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:isSupport="true"
-            android:text="@string/option_8"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/option_7"
+                android:textSize="20sp"
+                app:isSupport="true" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/option_8"
+                android:textSize="20sp"
+                app:isSupport="true" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

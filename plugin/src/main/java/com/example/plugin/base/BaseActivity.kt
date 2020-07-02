@@ -69,23 +69,25 @@ open class BaseActivity : AppCompatActivity() {
      */
     override fun onResume() {
         super.onResume()
-        Log.d(
-            "changeTag",
-            (if (null == mCurrentSkin) "currentSkin是空" else mCurrentSkin)!!
-        )
-        if (null != mCurrentSkin) changeSkin(mCurrentSkin) // 换肤操作必须在setContentView之后
+        Log.d("LanguageSetting", "${LanguageSetting.currentLanguageSkinPath}")
+        if (LanguageSetting.currentLanguageSkinPath.isNullOrEmpty()) return
+        changeSkin(LanguageSetting.currentLanguageSkinPath)
     }
 
+    fun changeSkin(path: String) {
 
-    fun changeSkin(path: String?) {
-//        val skinFile =
-//            File(Environment.getExternalStorageDirectory(), path)
+        LanguageSetting.currentLanguageSkinPath = path
         SkinEngine.instance.load(path)
         mSkinFactory.changeSkin()
-        mCurrentSkin = path
+
     }
 
     companion object {
-        var mCurrentSkin: String? = null
+        const val STATE_EN = "en"
+        const val STATE_CN = "cn"
+        const val STATE_CN_TW = "cn_tw"
     }
+
+    var languageState = STATE_CN
+
 }

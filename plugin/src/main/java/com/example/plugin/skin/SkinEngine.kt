@@ -7,16 +7,27 @@ import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.core.content.ContextCompat
+import com.example.plugin.util.AssetUtil
 import java.io.File
 
 class SkinEngine private constructor() {
-    fun init(context: Context) {
+    /**
+     * 初始化皮肤包，返回拷贝之后的皮肤包pathList
+     */
+    fun init(context: Context, skinArr: List<String>): List<String> {
         mContext = context.applicationContext
         //使用application的目的是，如果万一传进来的是Activity对象
         //那么它被静态对象instance所持有，这个Activity就无法释放了
+
+        val skinPathList = mutableListOf<String>()
+        // 拷贝assets内的皮肤文件到app目录内
+        for (str in skinArr) {
+            skinPathList.add(AssetUtil.copyAssetToCache(context, str))
+        }
+        return skinPathList
     }
 
-    private lateinit var mOutResource: Resources// TODO: 资源管理器
+    private var mOutResource: Resources? = null// TODO: 资源管理器
     private var mContext //上下文
             : Context? = null
     private var mOutPkgName // TODO: 外部资源包的packageName
@@ -66,11 +77,11 @@ class SkinEngine private constructor() {
         if (mOutResource == null) {
             return resId
         }
-        val resName = mOutResource.getResourceEntryName(resId)
-        val outResId = mOutResource.getIdentifier(resName, "color", mOutPkgName)
+        val resName = mOutResource!!.getResourceEntryName(resId)
+        val outResId = mOutResource!!.getIdentifier(resName, "color", mOutPkgName)
         return if (outResId == 0) {
             resId
-        } else mOutResource.getColor(outResId)
+        } else mOutResource!!.getColor(outResId)
     }
 
     /**
@@ -82,11 +93,11 @@ class SkinEngine private constructor() {
         if (mOutResource == null) {
             return ContextCompat.getDrawable(mContext!!, resId)
         }
-        val resName = mOutResource.getResourceEntryName(resId)
-        val outResId = mOutResource.getIdentifier(resName, "drawable", mOutPkgName)
+        val resName = mOutResource!!.getResourceEntryName(resId)
+        val outResId = mOutResource!!.getIdentifier(resName, "drawable", mOutPkgName)
         return if (outResId == 0) {
             ContextCompat.getDrawable(mContext!!, resId)
-        } else mOutResource.getDrawable(outResId)
+        } else mOutResource!!.getDrawable(outResId)
     } //..... 这里还可以提供外部资源包里的String，font等等等，只不过要手动写代码来实现getXX方法
 
     /**

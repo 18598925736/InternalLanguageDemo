@@ -1,10 +1,13 @@
-package com.example.plugin
+package com.example.plugin.skin
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 
-class SkinChangableCustomView : View {
+/**
+ * 皮肤可变的自定义View
+ */
+class SkinMutableCustomView : View {
     constructor(context: Context?) : super(context) {}
     constructor(context: Context?, attrs: AttributeSet?) : super(
         context,

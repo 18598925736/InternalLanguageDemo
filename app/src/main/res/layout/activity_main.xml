@@ -9,10 +9,17 @@
     android:padding="20dp"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnChangeSkin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="changeSkin" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        app:isSupport="true"
         android:text="@string/title"
         android:textSize="22sp" />
 
@@ -20,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        app:isSupport="true"
         android:text="@string/title2"
         android:textColor="@color/color_1A1C25"
         android:textSize="18sp" />
@@ -29,6 +37,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="12dp"
         android:background="@drawable/bg_1"
+        app:isSupport="true"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -36,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            app:isSupport="true"
             android:text="@string/option_1"
             android:textSize="20sp" />
 
@@ -43,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            app:isSupport="true"
             android:text="@string/option_2"
             android:textSize="20sp" />
 
@@ -50,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            app:isSupport="true"
             android:text="@string/option_3"
             android:textSize="20sp" />
 
@@ -57,6 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            app:isSupport="true"
             android:text="@string/option_4"
             android:textSize="20sp" />
 
@@ -64,6 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            app:isSupport="true"
             android:text="@string/option_5"
             android:textSize="20sp" />
 
@@ -71,6 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            app:isSupport="true"
             android:text="@string/option_6"
             android:textSize="20sp" />
 
@@ -78,6 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            app:isSupport="true"
             android:text="@string/option_7"
             android:textSize="20sp" />
 
@@ -85,9 +101,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            app:isSupport="true"
             android:text="@string/option_8"
             android:textSize="20sp" />
 
     </LinearLayout>
+
 
 </LinearLayout>

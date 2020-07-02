@@ -1,10 +1,11 @@
-package com.example.plugin
+package com.example.plugin.skin
 
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.AssetManager
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
+import android.util.Log
 import androidx.core.content.ContextCompat
 import java.io.File
 
@@ -15,8 +16,7 @@ class SkinEngine private constructor() {
         //那么它被静态对象instance所持有，这个Activity就无法释放了
     }
 
-    private var mOutResource // TODO: 资源管理器
-            : Resources? = null
+    private lateinit var mOutResource: Resources// TODO: 资源管理器
     private var mContext //上下文
             : Context? = null
     private var mOutPkgName // TODO: 外部资源包的packageName
@@ -66,11 +66,11 @@ class SkinEngine private constructor() {
         if (mOutResource == null) {
             return resId
         }
-        val resName = mOutResource!!.getResourceEntryName(resId)
-        val outResId = mOutResource!!.getIdentifier(resName, "color", mOutPkgName)
+        val resName = mOutResource.getResourceEntryName(resId)
+        val outResId = mOutResource.getIdentifier(resName, "color", mOutPkgName)
         return if (outResId == 0) {
             resId
-        } else mOutResource!!.getColor(outResId)
+        } else mOutResource.getColor(outResId)
     }
 
     /**
@@ -82,12 +82,28 @@ class SkinEngine private constructor() {
         if (mOutResource == null) {
             return ContextCompat.getDrawable(mContext!!, resId)
         }
-        val resName = mOutResource!!.getResourceEntryName(resId)
-        val outResId = mOutResource!!.getIdentifier(resName, "drawable", mOutPkgName)
+        val resName = mOutResource.getResourceEntryName(resId)
+        val outResId = mOutResource.getIdentifier(resName, "drawable", mOutPkgName)
         return if (outResId == 0) {
             ContextCompat.getDrawable(mContext!!, resId)
-        } else mOutResource!!.getDrawable(outResId)
+        } else mOutResource.getDrawable(outResId)
     } //..... 这里还可以提供外部资源包里的String，font等等等，只不过要手动写代码来实现getXX方法
+
+    /**
+     * 提供外部资源包里面的文本
+     *
+     * @param resId
+     * @return
+     */
+    fun getText(stringName: String): CharSequence? {
+        if (mOutResource == null) {
+            return ""
+        }
+        val outResId = mOutResource!!.getIdentifier(stringName, "string", mOutPkgName)
+        return if (outResId == 0) {
+            "xxx"
+        } else mOutResource!!.getString(outResId)
+    }
 
     companion object {
         //单例
